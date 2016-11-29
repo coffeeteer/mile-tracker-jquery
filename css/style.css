@@ -6,3 +6,6 @@ ul{
 	display: block;
 }
 
+.controls {
+	float: right;
+}
