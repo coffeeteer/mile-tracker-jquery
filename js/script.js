@@ -14,6 +14,9 @@ $(document).one('pageinit', function() {
 	// Set Curent Date Handler
 	$('#stats').on('tap', '#editLink', setCurrent);
 
+	// Clear Handler
+	$('#clearRuns').on('tap', clearRuns);
+
 	/*
 	* Show all runs on homepage
 	*/
@@ -30,6 +33,8 @@ $(document).one('pageinit', function() {
 			$('#home').bind('pageinit', function(){
 				$('#stats').listview('refresh');
 			});
+		} else {
+			$('#stats').html('<p>You have no logged runs</p>')
 		}
 	}
 
@@ -103,7 +108,11 @@ $(document).one('pageinit', function() {
 		window.location.href  = 'index.html';
 
 		return false;
+	}
 
+	function clearRuns() {
+		localStorage.removeItem('runs');
+		$('#stats').html('<p>You have no logged runs</p>');
 	}
 
 	/*
